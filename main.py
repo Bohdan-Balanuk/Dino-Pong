@@ -52,25 +52,25 @@ while not gameover:
         player2.move_Down() 
 
     if ball_direction_x == 1:
-        ball.rect.x -= ball.speed
+        ball.rect.x -= ball.speed_x
     if ball_direction_x == 2:
-        ball.rect.x += ball.speed
+        ball.rect.x += ball.speed_x
 
     if ball_direction_y == 1:
-        ball.rect.y += ball.speed
+        ball.rect.y += ball.speed_y
     if ball_direction_y == 2:
-        ball.rect.y -= ball.speed
+        ball.rect.y -= ball.speed_y
 
-    if ball.rect.y >= 500:
-        ball_direction_y == 2
+    if ball.rect.y >= 700:
+        ball.speed_y *= -1
     if ball.rect.y <= 0:
-        ball_direction_y == 1
+        ball.speed_y *= -1
+    
 
     if ball.colliderect(player1):
-        ball_direction_x = 2
+        ball.speed_x *= -1
     if ball.colliderect(player2):
-        ball_direction_x = 1
-
+        ball.speed_x *= -1
     
     
     window.blit(background, (0,0))

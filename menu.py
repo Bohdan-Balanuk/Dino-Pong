@@ -1,5 +1,6 @@
 from PyQt5.QtCore import*
 from PyQt5.QtWidgets import*
+from classes_and_objects import*
 
 app = QApplication([])
 main_window = QWidget()
@@ -26,10 +27,8 @@ main_layout.addLayout(layout1)
 def choose_button_easy():
     ball_speed = 1
 
-
 def choose_button_middle():
     ball_speed = 2
-
 
 def choose_button_hard():
     ball_speed = 3
