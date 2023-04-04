@@ -2,6 +2,7 @@ from pygame import*
 from time import time as time1
 from random import randint 
 from classes_and_objects import* 
+import sys
 
 init()
 clock = time.Clock()
@@ -92,20 +93,54 @@ while not gameover:
         if choose == 1:
             if ball.speed_y < 0:
                 ball.speed_y -= 0.2
-            else:
+            if ball.speed_y > 0:
                 ball.speed_y += 0.2
 
         if choose == 2:
             if ball.speed_y < 0:
                 ball.speed_y -= 0.3
-            else:
+            if ball.speed_y > 0:
                 ball.speed_y += 0.3
 
         if choose == 3:
             if ball.speed_y < 0:
                 ball.speed_y -= 0.35
-            else:
-                ball.speed_y += 0.35 
+            if ball.speed_y > 0:
+                ball.speed_y += 0.35
+
+    #кінець
+    if choose == 1:
+        if player1_goals == 4:
+            finish_image = font.SysFont("Goudy Stout", 25).render("Left player WIN", True, (255, 0, 255))
+            finish(window, finish_image, gameover)
+            gameover = True
+
+        if player2_goals == 4: 
+            finish_image = font.SysFont("Goudy Stout", 25).render("Right player WIN", True, (255, 0, 255))
+            finish(window, finish_image, gameover)
+            gameover = True
+        
+    if choose == 2:
+        if player1_goals == 6:
+            finish_image = font.SysFont("Goudy Stout", 25).render("Left player WIN", True, (255, 0, 255))
+            finish(window, finish_image, gameover)
+            gameover = True
+
+        if player2_goals == 6: 
+            finish_image = font.SysFont("Goudy Stout", 25).render("Right player WIN", True, (255, 0, 255))
+            finish(window, finish_image, gameover)
+            gameover = True
+    
+    if choose == 3:
+        if player1_goals == 8:
+            finish_image = font.SysFont("Goudy Stout", 25).render("Left player WIN", True, (255, 0, 255))
+            finish(window, finish_image, gameover)
+            gameover = True
+
+        if player2_goals == 8: 
+            finish_image = font.SysFont("Goudy Stout", 25).render("Right player WIN", True, (255, 0, 255))
+            finish(window, finish_image, gameover)
+            gameover = True
 
     # реагування мяча на гравців    
     if ball.colliderect(player1):
@@ -115,14 +150,21 @@ while not gameover:
 
     # реакція мяча за виліт карти
     if ball.rect.x >= 1100 or ball.rect.x <= -100:
+        if ball.rect.x >= 1100:
+            player1_goals += 1
+        if ball.rect.x <= -100:
+            player2_goals += 1
         ball.rect.x = 500
         ball.rect.y = 350
         ball.speed_y = ball_speedy
-       
+
     window.blit(background, (0,0))
     player1.draw_player(window)
     player2.draw_player(window)   
     ball.draw_ball(window)
+
+    player1_stats.set_text(str(player1_goals))
+    player2_stats.set_text(str(player2_goals))
 
     player1_stats.draw_text(window)    
     player2_stats.draw_text(window)    

@@ -4,6 +4,7 @@ from menu import*
 import sys
 
 init()
+clock = time.Clock()
 
 class GameCard():
 
@@ -67,20 +68,30 @@ class Player():
     def move_Down(self):
         self.rect.y += 7
 
+def finish(window, finish_image, gameover, counter = 0):
+    window.blit(finish_image,(window.get_width() / 2 - 220, window.get_height() / 2 - 70))
+    display.update()
+    while counter != 15*60 and not gameover:
+        for e in event.get():
+            if e.type == QUIT:
+                gameover = True
+        counter += 1
+        clock.tick(120)
+
 pl1 = 0
 pl2 = 0
+player1_goals = 0
+player2_goals = 0
 
 player1 = Player("Objects/player.png", 50, 300, 50, 150)
 player2 = Player("Objects/player.png", 950, 300, 50, 150)
 
 player1_stats = GameCard(420, 50, 100, 100, (255, 0, 0))
-player1_stats.set_text("0")
 
 text = GameCard(520, 50, 100, 100, (255, 0, 255))
 text.set_text(":")
 
 player2_stats = GameCard(620, 50, 100, 100, (0, 255, 255))
-player2_stats.set_text("0")
 
 if choose == 1:
     ball_speedx = 3
