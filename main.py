@@ -77,6 +77,6 @@ while not gameover:
     player1.draw_player(window)
     player2.draw_player(window)   
     ball.draw_ball(window)    
-
+    print(ball_speedx, ball_speedy)
     display.update()
     clock.tick(120)
