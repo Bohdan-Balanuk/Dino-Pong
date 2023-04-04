@@ -43,6 +43,7 @@ while not gameover:
             if ev.key == K_DOWN:
                 pl2 = 0
 
+    # движение гравців
     if pl1 == 1 and player1.rect.y >= 0:
         player1.move_Up() 
     if pl1 == -1 and player1.rect.y <= 600:
@@ -53,6 +54,7 @@ while not gameover:
     if pl2 == -1 and player2.rect.y <= 600:
         player2.move_Down() 
 
+    # рандом напрямок(лише спочатку гри)
     if ball_direction_x == 1:
         ball.rect.x -= ball.speed_x
     if ball_direction_x == 2:
@@ -63,25 +65,56 @@ while not gameover:
     if ball_direction_y == 2:
         ball.rect.y -= ball.speed_y
 
+    # відскакування мяча від полу й потолку
     if ball.rect.y >= 700:
         ball.speed_y *= -1
-        if ball.speed_y < 0:
-            ball.speed_y -= 0.3 
-        else:
-            ball.speed_y += 0.3     
+
+        if choose == 1:
+            if ball.speed_y < 0:
+                ball.speed_y -= 0.2
+            else:
+                ball.speed_y += 0.2
+
+        if choose == 2:
+            if ball.speed_y < 0:
+                ball.speed_y -= 0.3
+            else:
+                ball.speed_y += 0.3
+
+        if choose == 3:
+            if ball.speed_y < 0:
+                ball.speed_y -= 0.35
+            else:
+                ball.speed_y += 0.35     
         
     if ball.rect.y <= 0:
         ball.speed_y *= -1
-        if ball.speed_y < 0:
-            ball.speed_y -= 0.3
-        else:
-            ball.speed_y += 0.3   
-        
+
+        if choose == 1:
+            if ball.speed_y < 0:
+                ball.speed_y -= 0.2
+            else:
+                ball.speed_y += 0.2
+
+        if choose == 2:
+            if ball.speed_y < 0:
+                ball.speed_y -= 0.3
+            else:
+                ball.speed_y += 0.3
+
+        if choose == 3:
+            if ball.speed_y < 0:
+                ball.speed_y -= 0.35
+            else:
+                ball.speed_y += 0.35 
+
+    # реагування мяча на гравців    
     if ball.colliderect(player1):
         ball.speed_x *= -1
     if ball.colliderect(player2):
         ball.speed_x *= -1
 
+    # реакція мяча за виліт карти
     if ball.rect.x >= 1100 or ball.rect.x <= -100:
         ball.rect.x = 500
         ball.rect.y = 350
