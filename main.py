@@ -9,7 +9,7 @@ clock = time.Clock()
 
 window = display.set_mode((1050, 750))
 display.set_caption('Dino-Pong')
-background = transform.scale(image.load("Objects/Поле.png"), (1050, 750))
+background = transform.scale(image.load("Objects/Поле.jpg"), (1050, 750))
 window.blit(background, (0,0))
 
 gameover = False

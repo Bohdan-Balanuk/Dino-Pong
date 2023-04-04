@@ -1,6 +1,5 @@
 from PyQt5.QtCore import*
 from PyQt5.QtWidgets import*
-from classes_and_objects import*
 
 app = QApplication([])
 main_window = QWidget()
@@ -24,19 +23,27 @@ layout1.addWidget(button_hard)
 
 main_layout.addLayout(layout1)
 
+choose = 0 
+
 def choose_button_easy():
-    ball_speed = 1
+    global choose
+    choose = 1
+    main_window.close()
 
 def choose_button_middle():
-    ball_speed = 2
+    global choose
+    choose = 2
+    main_window.close()
 
 def choose_button_hard():
-    ball_speed = 3
-
+    global choose
+    choose = 3
+    main_window.close()
 
 button_easy.clicked.connect(choose_button_easy)
 button_middle.clicked.connect(choose_button_middle)
 button_hard.clicked.connect(choose_button_hard)
+
 
 main_window.setLayout(main_layout)
 main_window.show()
