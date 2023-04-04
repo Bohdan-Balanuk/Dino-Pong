@@ -31,10 +31,10 @@ class Player():
         window.blit(self.image, (self.rect.x, self.rect.y))
     
     def move_Up(self):
-        self.rect.y -= 8
+        self.rect.y -= 6
     
     def move_Down(self):
-        self.rect.y += 8
+        self.rect.y += 6
 
 pl1 = 0
 pl2 = 0
