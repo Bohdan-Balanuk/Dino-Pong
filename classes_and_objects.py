@@ -31,10 +31,10 @@ class Player():
         window.blit(self.image, (self.rect.x, self.rect.y))
     
     def move_Up(self):
-        self.rect.y -= 8
+        self.rect.y -= 7
     
     def move_Down(self):
-        self.rect.y += 8
+        self.rect.y += 7
 
 pl1 = 0
 pl2 = 0
@@ -43,16 +43,16 @@ player1 = Player("Objects/player.png", 50, 300, 50, 150)
 player2 = Player("Objects/player.png", 950, 300, 50, 150)
 
 if choose == 1:
-    ball_speedx = 2
-    ball_speedy = 2
-
-if choose == 2:
     ball_speedx = 3
     ball_speedy = 3
 
-if choose == 3:
+if choose == 2:
     ball_speedx = 4
     ball_speedy = 4
+
+if choose == 3:
+    ball_speedx = 5
+    ball_speedy = 5
 
 
 ball = Ball("Objects/ball.png", 500, 350, 50, 50, ball_speedx, ball_speedy)

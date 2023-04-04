@@ -15,6 +15,8 @@ window.blit(background, (0,0))
 gameover = False
 
 while not gameover:
+    counter = 0
+
     for ev in event.get():
         if ev.type == QUIT:
             gameover = True
@@ -63,20 +65,32 @@ while not gameover:
 
     if ball.rect.y >= 700:
         ball.speed_y *= -1
+        if ball.speed_y < 0:
+            ball.speed_y -= 0.3 
+        else:
+            ball.speed_y += 0.3     
+        
     if ball.rect.y <= 0:
         ball.speed_y *= -1
-    
-
+        if ball.speed_y < 0:
+            ball.speed_y -= 0.3
+        else:
+            ball.speed_y += 0.3   
+        
     if ball.colliderect(player1):
         ball.speed_x *= -1
     if ball.colliderect(player2):
         ball.speed_x *= -1
-    
-    
+
+    if ball.rect.x >= 1100 or ball.rect.x <= -100:
+        ball.rect.x = 500
+        ball.rect.y = 350
+        ball.speed_y = ball_speedy
+       
     window.blit(background, (0,0))
     player1.draw_player(window)
     player2.draw_player(window)   
     ball.draw_ball(window)    
-
+    
     display.update()
     clock.tick(120)
