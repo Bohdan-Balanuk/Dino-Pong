@@ -2,7 +2,6 @@ from pygame import*
 from time import time as time1
 from random import randint 
 from classes_and_objects import* 
-import sys
 
 init()
 clock = time.Clock()
@@ -123,7 +122,11 @@ while not gameover:
     window.blit(background, (0,0))
     player1.draw_player(window)
     player2.draw_player(window)   
-    ball.draw_ball(window)    
-    
+    ball.draw_ball(window)
+
+    player1_stats.draw_text(window)    
+    player2_stats.draw_text(window)    
+    text.draw_text(window)
+
     display.update()
     clock.tick(120)
