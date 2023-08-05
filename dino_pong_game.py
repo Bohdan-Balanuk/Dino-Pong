@@ -1,15 +1,16 @@
 from pygame import*
 from time import time as time1
 from random import randint 
-from classes_and_objects import* 
+from classes_objects_and_menu_dino_pong import* 
 import sys
 
+   
 init()
 clock = time.Clock()
 
 window = display.set_mode((1050, 750))
 display.set_caption('Dino-Pong')
-background = transform.scale(image.load("Objects/Поле.jpg"), (1050, 750))
+background = transform.scale(image.load("Objects_Dino-Pong/Поле.jpg"), (1050, 750))
 window.blit(background, (0,0))
 
 gameover = False

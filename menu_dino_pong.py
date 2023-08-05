@@ -1,5 +1,6 @@
 from PyQt5.QtCore import*
 from PyQt5.QtWidgets import*
+# from dino_pong_game import*
 
 app = QApplication([])
 main_window = QWidget()
@@ -21,9 +22,7 @@ layout1.addWidget(button_easy)
 layout1.addWidget(button_middle)
 layout1.addWidget(button_hard)
 
-main_layout.addLayout(layout1)
-
-choose = 0 
+main_layout.addLayout(layout1) 
 
 def choose_button_easy():
     global choose

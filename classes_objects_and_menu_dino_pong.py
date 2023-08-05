@@ -1,6 +1,6 @@
 from pygame import*
 from random import randint
-from menu import*
+from menu_dino_pong import*
 import sys
 
 init()
@@ -78,13 +78,14 @@ def finish(window, finish_image, gameover, counter = 0):
         counter += 1
         clock.tick(120)
 
+
 pl1 = 0
 pl2 = 0
 player1_goals = 0
 player2_goals = 0
 
-player1 = Player("Objects/player.png", 50, 300, 50, 150)
-player2 = Player("Objects/player.png", 950, 300, 50, 150)
+player1 = Player("Objects_Dino-Pong/player.png", 50, 300, 50, 150)
+player2 = Player("Objects_Dino-Pong/player.png", 950, 300, 50, 150)
 
 player1_stats = GameCard(420, 50, 100, 100, (255, 0, 0))
 
@@ -106,7 +107,7 @@ if choose == 3:
     ball_speedy = 5
 
 
-ball = Ball("Objects/ball.png", 500, 350, 50, 50, ball_speedx, ball_speedy)
+ball = Ball("Objects_Dino-Pong/ball.png", 500, 350, 50, 50, ball_speedx, ball_speedy)
 
 ball_direction_x = randint(1,2)
 ball_direction_y = randint(1,2)
